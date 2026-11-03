@@ -75,16 +75,14 @@ if ($query === '') {
 </ul>
 <?php
 } else {
-    $matchedHero = null;
+    // Built-in PHP array method array_filter to search through superheroes (Hint 2)
+    $filtered = array_filter($superheroes, function ($superhero) use ($query) {
+        return strcasecmp($superhero['name'], $query) === 0 || strcasecmp($superhero['alias'], $query) === 0;
+    });
 
-    foreach ($superheroes as $superhero) {
-        if (strcasecmp($superhero['name'], $query) === 0 || strcasecmp($superhero['alias'], $query) === 0) {
-            $matchedHero = $superhero;
-            break;
-        }
-    }
+    $matchedHero = reset($filtered);
 
-    if ($matchedHero !== null) {
+    if ($matchedHero !== false && $matchedHero !== null) {
 ?>
 <h3><?= htmlspecialchars($matchedHero['alias']); ?></h3>
 <h4>A.K.A <?= htmlspecialchars($matchedHero['name']); ?></h4>
