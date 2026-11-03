@@ -63,10 +63,37 @@ $superheroes = [
   ], 
 ];
 
-?>
+// Sanitize query parameter to prevent malicious code injection
+$query = isset($_GET['query']) ? trim(htmlspecialchars(strip_tags($_GET['query']), ENT_QUOTES, 'UTF-8')) : '';
 
+if ($query === '') {
+?>
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
+  <li><?= htmlspecialchars($superhero['alias']); ?></li>
 <?php endforeach; ?>
 </ul>
+<?php
+} else {
+    $matchedHero = null;
+
+    foreach ($superheroes as $superhero) {
+        if (strcasecmp($superhero['name'], $query) === 0 || strcasecmp($superhero['alias'], $query) === 0) {
+            $matchedHero = $superhero;
+            break;
+        }
+    }
+
+    if ($matchedHero !== null) {
+?>
+<h3><?= htmlspecialchars($matchedHero['alias']); ?></h3>
+<h4>A.K.A <?= htmlspecialchars($matchedHero['name']); ?></h4>
+<p><?= htmlspecialchars($matchedHero['biography']); ?></p>
+<?php
+    } else {
+?>
+<p class="not-found">Superhero not found</p>
+<?php
+    }
+}
+?>
