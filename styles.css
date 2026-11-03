@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    padding: 40px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    background-color: #ffffff;
+    border: 1px solid #c7d2de;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+header {
+    background-color: #558ec8;
+    color: #ffffff;
+    padding: 16px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.35rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+main {
+    padding: 24px 28px;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #555555;
+    margin-bottom: 6px;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+}
+
+.search-box input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    outline: none;
+}
+
+.search-box input[type="text"]:focus {
+    border-color: #558ec8;
+}
+
+.search-box button {
+    background-color: #e53935;
+    color: #ffffff;
+    border: none;
+    border-radius: 2px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-box button:hover {
+    background-color: #c62828;
+}
+
+.result-section {
+    margin-top: 26px;
+}
+
+.result-section h2 {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #333333;
+    letter-spacing: 0.5px;
+}
+
+.result-section hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 0 16px 0;
+}
+
+#result ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#result ul li {
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    color: #333333;
+}
+
+#result h3 {
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #222222;
+    margin-bottom: 4px;
+}
+
+#result h4 {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+#result p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #333333;
+}
+
+#result .not-found {
+    color: #e53935;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
